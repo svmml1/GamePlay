@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+
 import { theme } from '../../Global/styles/theme';
 
 export const styles = StyleSheet.create({
@@ -13,7 +14,8 @@ export const styles = StyleSheet.create({
         height: 360,      
     },
     content:{
-        marginTop: -40
+        marginTop: -40,
+        paddingHorizontal: 50
     },
 
     title:{
