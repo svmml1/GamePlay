@@ -17,7 +17,7 @@ export function Profile() {
           </Text>
           
           <Text style={styles.username}>
-            Sergio
+            Ivo Lucas
           </Text>
         </View>
 
