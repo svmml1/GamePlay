@@ -5,7 +5,7 @@ import {
     Image,
     
 } from 'react-native'
-
+import Background from '../../components/Background';
 import { ButtonIcon } from '../../components/ButtonIcon';
 import IllustrationImg from '../../assets/illustration.png';
 import { styles } from './styles'
@@ -28,6 +28,7 @@ export function SignIn() {
 
 
     return (
+        <Background>
         <View style={styles.container}>
           
             <Image source={IllustrationImg}
@@ -51,5 +52,6 @@ export function SignIn() {
                 />
             </View>
         </View>
+        </Background>
     )
 }
