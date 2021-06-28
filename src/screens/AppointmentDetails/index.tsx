@@ -4,6 +4,7 @@ import { styles } from './styles'
 
 import Background  from '../../components/Background';
 import { Header } from '../../components/Header';
+import { ListHeader } from '../../components/ListHeader';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { Fontisto } from '@expo/vector-icons';
 import { theme } from '../../../global/styles/theme';
@@ -42,6 +43,11 @@ export function AppointmentDetails() {
           </Text>
         </View>   
             </ImageBackground>
+
+            <ListHeader 
+            title="Jogadores"
+            subtitle="Total 3"
+            />
         </Background>
     )
 }
