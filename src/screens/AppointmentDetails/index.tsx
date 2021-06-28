@@ -14,6 +14,16 @@ import BannerImg from '../../assets/banner.png'
 
 
 export function AppointmentDetails() {
+
+  const members = [
+    { 
+      id: '1',
+      username: 'Sergio',
+      avatar_url: ''
+    }
+  ]
+
+  
     return (
         <Background>
             <Header 
