@@ -31,42 +31,111 @@ export function AppointmentCreate(){
 
 
     return (
-        <Background>
-            <Header 
-            title="Agendar Partida"
-            />
+        <KeyboardAvoidingView 
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height' }
+      style={styles.container}
+    >
+      <ScrollView>  
+        <Header 
+          title="Agendar partida"
+        />
 
-            <Text style={[styles.label, {marginLeft: 24, marginTop: 36, marginBottom: 18} ]}>
-                Categoria
-            </Text>
-            <CategorySelect 
-            hasCheckBox
-            setCategory={category}
-            categorySelected={setCategory}
-            />
+        <Text style={[
+          styles.label, 
+          { marginLeft: 24, marginTop: 36, marginBottom: 18 }]}
+        >
+          Categoria
+        </Text>
 
-            <View style={styles.form}>
-                <RectButton>
-                    <View style={styles.select}>
-                        {
-                            /*<View style={styles.image}/> */
-                        <GuildIcon />
-                        }
-                        <View style={styles.selectBody}>
-                            <Text style={styles.label}>
-                                Selecione um Servidor
-                            </Text>
-                        </View>
+        <CategorySelect 
+          hasCheckBox
+          setCategory={setCategory}
+          categorySelected={category}
+        />
 
-                        <Feather 
-                        name="chevron-right"
-                        color={theme.colors.heading}
-                        size={18}
-                        />
-                    </View>
-                </RectButton>
-                <SmallInput />
+        <View style={styles.form}>
+          <RectButton onPress={handleOpenGuilds}>
+            <View style={styles.select}>
+              {
+                guild.icon 
+                ? <GuildIcon /> 
+                : <View style={styles.image} />
+              }
+
+              <View style={styles.selectBody}>
+                <Text style={styles.label}>
+                  { 
+                    guild.name 
+                    ? guild.name 
+                    : 'Selecione um servidor' 
+                  }
+                </Text>
+              </View>
+
+              <Feather 
+                name="chevron-right"
+                color={theme.colors.heading}
+                size={18}
+              />
             </View>
-        </Background>
-    )
+          </RectButton>
+          
+          <View style={styles.field}>
+            <View>
+              <Text style={styles.label}>
+                Dia e mês
+              </Text>
+
+              <View style={styles.column}>
+                <SmallInput maxLength={2} />
+                <Text style={styles.divider}>
+                  /
+                </Text>
+                <SmallInput maxLength={2} />
+              </View>
+            </View>
+
+            <View>
+              <Text style={styles.label}>
+                Hora e minuto
+              </Text>
+
+              <View style={styles.column}>
+                <SmallInput maxLength={2} />
+                <Text style={styles.divider}>
+                  :
+                </Text>
+                <SmallInput maxLength={2} />
+              </View>
+            </View>           
+          </View>
+
+          <View style={[styles.field, { marginBottom: 12 }]}>
+            <Text style={styles.label}>
+              Descrição
+            </Text>
+
+            <Text style={styles.caracteresLimit}>
+              Max 100 caracteres
+            </Text>
+          </View>
+
+          <TextArea 
+            multiline
+            maxLength={100}
+            numberOfLines={5}
+            autoCorrect={false}
+          />
+
+          <View style={styles.footer}>
+            <Button title="Agendar" />
+          </View>
+        </View>
+      </ScrollView>
+
+      <ModalView visible={openGuildsModa}>
+        <Guilds handleGuildSelect={handleGuildSelect}/>
+      </ModalView>
+    </KeyboardAvoidingView>
+  );
 }
