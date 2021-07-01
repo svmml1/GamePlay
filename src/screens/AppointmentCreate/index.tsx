@@ -28,7 +28,18 @@ import Background from '../../components/Background';
 
 export function AppointmentCreate(){
     const [category, setCategory] = useState('');
+    const [openGuildsModa, setOpenGuildsModal] = useState(false);
+    const [guild, setGuild] = useState<GuildProps>({} as GuildProps);
 
+
+    function handleOpenGuilds(){
+      setOpenGuildsModal(true);
+    }
+  
+    function handleGuildSelect(guildSelect: GuildProps){
+      setGuild(guildSelect);
+      setOpenGuildsModal(false);
+    }
 
     return (
         <KeyboardAvoidingView 
