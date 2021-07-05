@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import {
     View,
     Text,
@@ -10,6 +10,8 @@ import { ButtonIcon } from '../../components/ButtonIcon';
 import IllustrationImg from '../../assets/illustration.png';
 import { styles } from './styles'
 import { useNavigation } from '@react-navigation/native';
+
+import { useAuth } from '../../hooks/auth';
 
 
 
@@ -25,6 +27,9 @@ export function SignIn() {
       }
 
     const [text, setText] = useState('');
+
+    const { user } = useAuth();
+    console.log(user)
 
 
     return (
